@@ -11,5 +11,11 @@ TEST(SequenceProcessorTestSuite, anUnsortedSequenceShouldBeSorted)
     ASSERT_EQ(l_seq, l_seqExpect);
 }
 
-
+TEST(SequenceProcessorTestSuite, duplicatedNumbersShouldBeRemoved)
+{
+    vector<int> l_seq = { 5, 8, 0, 100, 95, 8, 42, 42 };
+    vector<int> l_seqExpect = { 0, 5, 8, 42, 95, 100 };
+    SequenceProcessor::ProcessSequence(l_seq);
+    ASSERT_EQ(l_seq, l_seqExpect);
+}
 
