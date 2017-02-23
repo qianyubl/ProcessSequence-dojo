@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 using namespace std;
-#if 1
+
 TEST(SequenceProcessorTestSuite, anUnsortedSequenceShouldBeSorted)
 {
     vector<int> l_seq = { 1, 8, 7, 99, 94, 76, 22, 42 };
@@ -35,7 +35,7 @@ TEST(SequenceProcessorTestSuite, 2LastNumbersDivededBy5ShouldbeExchangedWithNext
     SequenceProcessor::ProcessSequence(l_seq);
     ASSERT_EQ(l_seq, l_seqExpect);
 }
-#endif
+
 TEST(SequenceProcessorTestSuite, allNumbersBeforeThe1stNumberBiggerThan1stNumberShouldBePutBack)
 {
     vector<int> l_seq = { 5, 8, 0, 100, 95, 15, 42, 42 };
