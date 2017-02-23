@@ -1,5 +1,4 @@
 #include <iostream>
-#include "ProcessSequence.hpp"
 
 #ifndef UNIT_TEST
 int main(int argc, char** argv)
