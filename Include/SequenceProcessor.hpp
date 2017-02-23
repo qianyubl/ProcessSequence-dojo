@@ -4,6 +4,6 @@ using namespace std;
 class SequenceProcessor
 {
 public:
-    static int ProcessSequence(vector<int>& p_seq);
+    static void process(vector<int>& p_seq);
 };
 

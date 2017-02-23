@@ -9,10 +9,10 @@ UTINC = -I./googletest/googlemock/include\
 UTFLAG = -g -pthread -DUNIT_TEST -Wno-write-strings
 
 all:
-	g++ -std=c++14 -pthread -I./Include Source/*.cpp -o ProcessSequence.exe -g
+	g++ -std=c++14 -pthread -I./Include Source/*.cpp -o SequenceProcessor.exe -g
 
 ut:
-	g++ -std=c++14 ${UTFLAG} ${UTINC} ${UTLIB} Source/*.cpp Test_modules/*.cpp -o ut_ProcessSequence.exe
+	g++ -std=c++14 ${UTFLAG} ${UTINC} ${UTLIB} Source/*.cpp Test_modules/*.cpp -o ut_SequenceProcessor.exe
 
 clean:
 	rm -rf *.o

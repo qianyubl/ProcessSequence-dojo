@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <stdexcept>
 
-int SequenceProcessor::ProcessSequence(vector<int>& p_seq)
+void SequenceProcessor::process(vector<int>& p_seq)
 {
     if(p_seq.size() != 8)
     {
@@ -31,6 +31,4 @@ int SequenceProcessor::ProcessSequence(vector<int>& p_seq)
 
     l_result = find_if(p_seq.begin(), p_seq.end(), [&](int p_val){return p_val > p_seq[0];});
     rotate(p_seq.begin(), l_result, p_seq.end());
-
-    return 0;
 }
