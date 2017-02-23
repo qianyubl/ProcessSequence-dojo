@@ -7,5 +7,6 @@ int ut_main(int argc, char** argv)
 #endif
 {
     std::cout << "We need a HERO to save dumplings !!!" << std::endl;
+
     return 0;
 }

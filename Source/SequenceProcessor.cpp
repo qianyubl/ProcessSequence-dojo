@@ -1,8 +1,14 @@
 #include "SequenceProcessor.hpp"
 #include <algorithm>
+#include <stdexcept>
 
 int SequenceProcessor::ProcessSequence(vector<int>& p_seq)
 {
+    if(p_seq.size() != 8)
+    {
+        throw invalid_argument("invalid size");
+    }
+
     sort(p_seq.begin(), p_seq.end());
 
     auto l_last = unique(p_seq.begin(), p_seq.end());
@@ -12,15 +18,13 @@ int SequenceProcessor::ProcessSequence(vector<int>& p_seq)
                                [](auto p_val){return p_val % 5 == 0;});
 
     if(prev(l_result, 2) >= p_seq.begin() and next(l_result, 2) <= p_seq.end())
-        reverse(prev(l_result, 2), next(l_result, 2));
-
-    #if 0
-    if(i-2 >= p_seq.begin() and i+2 <= p_seq.end())
     {
-        int l_tmp = 0;
-        l_tmp = p_seq[it-1], p_seq[it-1] = p_seq[it], p_seq[it] = l_tmp;
-        l_tmp = p_seq[it-1], p_seq[it-1] = p_seq[it], p_seq[it] = l_tmp;
+        reverse(prev(l_result, 2), next(l_result, 2));
     }
-    #endif
+
+    int l_firstValue = p_seq[0];
+    l_result = find_if(p_seq.begin(), p_seq.end(), [=](int p_val){return p_val > l_firstValue;});
+    rotate(p_seq.begin(), l_result, p_seq.end());
+
     return 0;
 }
