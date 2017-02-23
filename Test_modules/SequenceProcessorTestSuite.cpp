@@ -21,9 +21,18 @@ TEST(SequenceProcessorTestSuite, duplicatedNumbersShouldBeRemoved)
 
 TEST(SequenceProcessorTestSuite, allNumbersCannotBeDevidedBy5ShouldBePlacedBack)
 {
-    vector<int> l_seq = { 5, 8, 0, 100, 95, 8, 42, 42 };
-    vector<int> l_seqExpect = { 0, 5, 95, 100, 8, 42 };
+    vector<int> l_seq = { 5, 8, 0, 100, 95, 8, 45, 45 };
+    vector<int> l_seqExpect = { 0, 5, 45, 95, 100, 8 };
     SequenceProcessor::ProcessSequence(l_seq);
     ASSERT_EQ(l_seq, l_seqExpect);
 }
+
+TEST(SequenceProcessorTestSuite, 2LastNumbersDivededBy5ShouldbeExchangedWithNext2Numbers)
+{
+    vector<int> l_seq = { 5, 8, 0, 100, 95, 15, 42, 42 };
+    vector<int> l_seqExpect = { 0, 5, 15, 42, 8, 100, 95};
+    SequenceProcessor::ProcessSequence(l_seq);
+    ASSERT_EQ(l_seq, l_seqExpect);
+}
+
 
