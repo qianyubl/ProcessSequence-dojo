@@ -6,7 +6,13 @@ int SequenceProcessor::ProcessSequence(vector<int>& p_seq)
 {
     if(p_seq.size() != 8)
     {
-        throw invalid_argument("invalid size");
+        throw length_error("invalid size");
+    }
+
+    if(any_of(p_seq.begin(), p_seq.end(),
+              [](int p_val){return 0 > p_val or p_val > 100;}))
+    {
+        throw out_of_range("Numbers out of range.");
     }
 
     sort(p_seq.begin(), p_seq.end());

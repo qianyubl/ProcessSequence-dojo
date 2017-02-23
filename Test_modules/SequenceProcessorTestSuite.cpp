@@ -47,6 +47,14 @@ TEST(SequenceProcessorTestSuite, allNumbersBeforeThe1stNumberBiggerThan1stNumber
 TEST(SequenceProcessorTestSuite, invalidSeqSizeShouldThrowException)
 {
     vector<int> l_seq = { 5, 8, 0, 100, 95, 15, 42 };
-    EXPECT_THROW(SequenceProcessor::ProcessSequence(l_seq), invalid_argument);
+
+    EXPECT_THROW(SequenceProcessor::ProcessSequence(l_seq), length_error);
+}
+
+TEST(SequenceProcessorTestSuite, numberOutOfRangeShouldThrowException)
+{
+    vector<int> l_seq = { 5, 8, 0, 2345, 95, 4567, -90, 100 };
+
+    EXPECT_THROW(SequenceProcessor::ProcessSequence(l_seq), out_of_range);
 }
 
